@@ -7,18 +7,17 @@ public class Solution extends VersionControl{
 
     public int firstBadVersion(int n) {
 
-        long start = 1;
-        long end = n;
+        int start = 1;
+        int end = n;
         while(start != end ){
-            long middle = (start + end) / 2;
-            if(isBadVersion((int)middle)){
+            int middle = start + (end-start) / 2;
+            if(isBadVersion(middle)){
                 end = middle;
             }else{
                 start = middle + 1;
             }
-            System.out.println(start + "\t" + end);
         }
-        return (int)start;
+        return start;
 
 //        return computeVersion(1,n);
     }
